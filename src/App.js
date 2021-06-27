@@ -18,7 +18,11 @@ const items = [
 ];
 
 const App = () => {
-  return <Accordion items={items} />;
+  return (
+    <div>
+      <Accordion items={items} />;
+    </div>
+  );
 };
 
 export default App;
