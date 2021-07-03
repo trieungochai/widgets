@@ -3,10 +3,13 @@ import axios from "axios";
 
 const Search = () => {
   const [term, setTerm] = useState("");
+  const [results, setResults] = useState([]);
 
+  // to detect that 'term' has changed!
   useEffect(() => {
     const search = async () => {
-      await axios.get("https://en.wikipedia.org/w/api.php", {
+      // going to take the data out of the response we get
+      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
         params: {
           action: "query",
           list: "search",
@@ -15,9 +18,14 @@ const Search = () => {
           srsearch: term,
         },
       });
+
+      setResults(data.query.search);
     };
 
-    search();
+    // err: The \"srsearch\" parameter must be set.
+    if (term) {
+      search();
+    }
   }, [term]);
 
   return (
