@@ -22,10 +22,12 @@ const Search = () => {
       setResults(data.query.search);
     };
 
-    // err: The \"srsearch\" parameter must be set.
-    if (term) {
-      search();
-    }
+    const timeoutId = setTimeout(() => {
+      // err: The \"srsearch\" parameter must be set.
+      if (term) {
+        search();
+      }
+    }, 500);
   }, [term]);
 
   const renderedResults = results.map((result) => {
