@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
-  console.log({ open });
 
   useEffect(() => {
     document.body.addEventListener(
       "click",
-      () => {
-        console.log("BODY CLICKED");
+      (event) => {
+        console.log(event.target);
         setOpen(false);
       },
       { capture: true }
@@ -25,7 +24,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         className="item"
         key={option.value}
         onClick={() => {
-          console.log("ITEM CLICKED");
           onSelectedChange(option);
         }}
       >
@@ -40,7 +38,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         <label className="label">Select a Color</label>
         <div
           onClick={() => {
-            console.log("DROPDOWN CLICKED");
             setOpen(!open);
           }}
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
