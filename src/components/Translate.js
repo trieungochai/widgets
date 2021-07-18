@@ -1,19 +1,32 @@
 import React, { useState } from "react";
 
 import Dropdown from "./Dropdown";
+import Convert from "./Convert";
 
 const options = [
   {
     label: "Japanese",
-    value: "JP",
+    value: "ja",
   },
   {
-    label: "Chinese",
-    value: "CN",
+    label: "Chinese (Simplified)",
+    value: "zh",
   },
   {
-    label: "Hindi",
-    value: "HI",
+    label: "German",
+    value: "de",
+  },
+  {
+    label: "Vietnamese",
+    value: "vi",
+  },
+  {
+    label: "Spanish",
+    value: "es",
+  },
+  {
+    label: "Italian",
+    value: "it",
   },
 ];
 
@@ -41,6 +54,9 @@ const Translate = () => {
         selected={language}
         onSelectedChange={setLanguage}
       />
+      <hr />
+      <h3 className="ui header">Output</h3>
+      <Convert language={language} text={text} />
     </div>
   );
 };

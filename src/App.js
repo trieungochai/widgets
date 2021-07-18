@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Translate from "./components/Translate";
 // import Dropdown from "./components/Dropdown";
@@ -36,9 +36,6 @@ const options = [
 ];
 
 const App = () => {
-  // const [selected, setSelected] = useState(options[0]);
-  // const [showDropdown, setShowDropdown] = useState(false);
-
   return (
     <div>
       <Translate />
