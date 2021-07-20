@@ -5,6 +5,7 @@ import Dropdown from "./components/Dropdown";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
   {
@@ -65,6 +66,7 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Route path="/">
         <Accordion items={items} />
       </Route>
